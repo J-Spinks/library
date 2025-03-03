@@ -82,6 +82,18 @@ button {
   display: block;
 }
 
+.deleteBtn, .updateBtn {
+  margin-top: 10px;
+}
+
+.deleteBtn {
+  margin-left: 10px;
+}
+
+.updateBtn {
+  margin-right: 10px;
+}
+
 
 #new-book-btn {
   margin: 0 auto;

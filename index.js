@@ -5,17 +5,22 @@ function Book(author, title, pages, readStatus) {
   this.readStatus = readStatus
 };
 
-const book1 = new Book("Ian Flemming", "James Bond", 100, "No")
-const book2 = new Book("JRR Tolkien", "Fellowship of the ring", 800, "no")
-const book3 = new Book("JRR Tolkien", "Fellowship of the ring", 800, "yes")
+const book1 = new Book("Ian Flemming", "James Bond", 100, false)
+const book2 = new Book("JRR Tolkien", "Fellowship of the ring", 800, false)
+const book3 = new Book("JRR Tolkien", "Fellowship of the ring", 800, false)
 
 
-let library = [book1, book2, book3];
+const library = [];
 
 function createNewBook(author, title, pages, readStatus) {
-  const book = new Book(author, title, pages, readStatus);
+  const book = new Book(author, title, pages, readStatus === false);
   library.push(book);
+  printLibrary();
 };
+
+Book.prototype.updateReadStatus = function() {
+  this.readStatus = !this.readStatus
+}
 
 const newBookBtn = document.getElementById("new-book-btn");
 const cancelBookBtn = document.getElementById("cancel-book-btn");
@@ -38,31 +43,50 @@ cancelBookBtn.addEventListener("click", (e) => {
 });
 
 function printLibrary(){
+  libraryContainer.innerHTML = "";
+
   library.forEach((book, index) =>{
     const bookDiv = document.createElement("div");
-    const updateBtn = document.createElement("button")
+    const updateBtn = document.createElement("button");
+    const deleteBookBtn = document.createElement("button");
+
+    deleteBookBtn.classList.add("deleteBtn");
+    deleteBookBtn.textContent = "Delete";
+
     updateBtn.classList.add("updateBtn");
-    updateBtn.textContent = "Update read status"
+    updateBtn.textContent = "Update read status";
+
     bookDiv.classList.add("book");
-    bookDiv.classList.add(`id${index + 1}`);
+    bookDiv.classList.add(`id-${index}`);
+
     const author = document.createElement("p");
     author.classList.add("author");
+    author.innerText = `Author: ${book.author}`;
+
     const title = document.createElement("p");
     title.classList.add("title");
+    title.innerText = `Title: ${book.title}`;
+
     const pages = document.createElement("p");
     pages.classList.add("pages");
+    pages.innerText = `Pages: ${book.pages}`;
+
     const read = document.createElement("p");
     read.classList.add("read");
-    author.innerText = `Author: ${book.author}`;
-    title.innerText = `Title: ${book.title}`;
-    pages.innerText = `Pages: ${book.pages}`;
-    read.innerText = `Read: ${book.readStatus}`;
+    read.innerText = `Read: ${book.readStatus ? "Yes" : "No"}`;
+
+
+
+
+
     bookDiv.appendChild(author);
     bookDiv.appendChild(title);
     bookDiv.appendChild(pages);
     bookDiv.appendChild(read);
     bookDiv.appendChild(updateBtn);
-    libraryContainer.appendChild(bookDiv)
+    bookDiv.appendChild(deleteBookBtn);
+    libraryContainer.appendChild(bookDiv);
+
   });
 }
 
@@ -73,6 +97,4 @@ formData.addEventListener("submit", (e) => {
   const pages = document.getElementById("pages-input").value;
   const readStatus = document.getElementById("read-input").value;
   createNewBook(author, title, pages, readStatus);
-  printLibrary();
-
 });
