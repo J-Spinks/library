@@ -87,6 +87,11 @@ function printLibrary(){
     bookDiv.appendChild(deleteBookBtn);
     libraryContainer.appendChild(bookDiv);
 
+    deleteBookBtn.addEventListener("click", () => {
+      library.splice(index, 1);
+      printLibrary();
+    });
+
   });
 }
 
