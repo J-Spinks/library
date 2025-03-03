@@ -7,9 +7,10 @@ function Book(author, title, pages, readStatus) {
 
 const book1 = new Book("Ian Flemming", "James Bond", 100, false)
 const book2 = new Book("JRR Tolkien", "Fellowship of the ring", 800, true)
+const book3 = new Book("JRR Tolkien", "Fellowship of the ring", 800, true)
 
 
-let library = [book1, book2];
+let library = [book1, book2, book3];
 
 function createNewBook(author, title, pages, readStatus) {
   const book = new Book(author, title, pages, readStatus);
@@ -62,7 +63,7 @@ library.forEach((book, index) =>{
   title.innerText = `Title: ${book.title}`;
   pages.innerText = `Pages: ${book.pages}`;
   read.innerText = `Read: ${
-    book.read ? "Yes" : "No"
+    book.readStatus ? "Yes" : "No"
   }`;
   bookDiv.appendChild(author);
   bookDiv.appendChild(title);
