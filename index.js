@@ -1,16 +1,16 @@
-// function Book(author, title, pages, readStatus) {
-//   this.author = author,
-//   this.title = title,
-//   this.pages = pages,
-//   this.readStatus = readStatus
-// };
+function Book(author, title, pages, readStatus) {
+  this.author = author,
+  this.title = title,
+  this.pages = pages,
+  this.readStatus = readStatus
+};
 
-// let library = [];
+let library = [];
 
-// function createNewBook(author, title, pages, readStatus) {
-//   const book = new Book(author, title, pages, readStatus);
-//   library.push(book);
-// };
+function createNewBook(author, title, pages, readStatus) {
+  const book = new Book(author, title, pages, readStatus);
+  library.push(book);
+};
 
 const newBookBtn = document.getElementById("new-book-btn");
 const cancelBookBtn = document.getElementById("cancel-book-btn");
@@ -25,4 +25,6 @@ newBookBtn.addEventListener("click", (e) => {
 cancelBookBtn.addEventListener("click", (e) => {
   form.style.display = "none";
   newBookBtn.style.display = "block";
-})
+});
+
+

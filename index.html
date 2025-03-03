@@ -7,33 +7,52 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <h1>Library </h1>
   <div class="container" id="form-container">
     <div class="form-structure">
       <form action="tbc" method="post">
-        <p>
+
+        <fieldset>
+
           <label for="author">Author:</label>
           <input type="text" id="Author" name="author" />
-        </p>
-        <p>
+
+
           <label for="title">Title:</label>
           <input type="text" id="title" name="title" />
-        </p>
-        <p>
-          <label for="pages">pages:</label>
+
+
+          <label for="pages">Pages:</label>
           <input type="number" id="pages" name="pages" />
-        </p>
-        <button class="btn" id="submit" type="submit">Submit</button>
+
+          <label for="read">Read Status</label>
+          <input type="text" id="read" name="read" />
+
+          <button class="btn" id="submit" type="submit">Submit</button>
+
+        </fieldset>
+
       </form>
       <button class="btn" id="cancel-book-btn">Cancel book</button>
-
     </div>
-
-
 
     <button class="btn" id="new-book-btn">Add New book</button>
   </div>
 
   <div class="container" id="lib-container">
+    <div class="book">
+      <p class="author">Author</p>
+      <p class="title">Title</p>
+      <p class="pages">200 pages</p>
+      <p class="read"> Not read</p>
+    </div>
+
+    <div class="book">
+      <p class="author">Author</p>
+      <p class="title">Title</p>
+      <p class="pages">200 pages</p>
+      <p class="read"> Not read</p>
+    </div>
 
   </div>
 
