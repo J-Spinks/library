@@ -13,7 +13,7 @@ const book3 = new Book("JRR Tolkien", "Fellowship of the ring", 800, false)
 const library = [];
 
 function createNewBook(author, title, pages, readStatus) {
-  const book = new Book(author, title, pages, readStatus === false);
+  const book = new Book(author, title, pages, readStatus);
   library.push(book);
   printLibrary();
 };
@@ -91,6 +91,11 @@ function printLibrary(){
       library.splice(index, 1);
       printLibrary();
     });
+
+    updateBtn.addEventListener("click", () => {
+      book.updateReadStatus();
+      printLibrary();
+    })
 
   });
 }
