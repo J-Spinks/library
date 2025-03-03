@@ -11,15 +11,15 @@
 }
 
 body {
-  /* 3. Add accessible line-height */
   line-height: 1.5;
-  /* 4. Improve text rendering */
   -webkit-font-smoothing: antialiased;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px dotted rgb(96 139 168);
+  border: 1px solid rgb(96 139 168);
+  border-radius: 6px;
   flex-direction: column;
+  margin: 20px;
 }
 
 fieldset {
@@ -67,7 +67,8 @@ button {
 }
 
 #lib-container {
-  margin: 2em 0;
+  margin-bottom: 1em ;
+  margin-top: .5em 0;
   padding: 1em 2em;
   border: solid 1px #ccc;
   border-radius: 6px;
