@@ -1,16 +1,17 @@
-function Book(author, title, pages, readStatus) {
-  this.author = author,
-  this.title = title,
-  this.pages = pages,
-  this.readStatus = readStatus
-};
+class Book {
+  constructor(author, title, pages, readStatus){
+    this.author = author,
+    this.title = title,
+    this.pages = pages,
+    this.readStatus = readStatus
+  }
 
-const book1 = new Book("Ian Flemming", "James Bond", 100, false)
-const book2 = new Book("JRR Tolkien", "Fellowship of the ring", 800, false)
-const book3 = new Book("JRR Tolkien", "Fellowship of the ring", 800, false)
+};
 
 
 const library = [];
+
+console.log(library)
 
 function createNewBook(author, title, pages, readStatus) {
   const book = new Book(author, title, pages, readStatus);
@@ -76,9 +77,6 @@ function printLibrary(){
     read.innerText = `Read: ${book.readStatus ? "Yes" : "No"}`;
 
 
-
-
-
     bookDiv.appendChild(author);
     bookDiv.appendChild(title);
     bookDiv.appendChild(pages);
@@ -107,4 +105,5 @@ formData.addEventListener("submit", (e) => {
   const pages = document.getElementById("pages-input").value;
   const readStatus = document.getElementById("read-input").value;
   createNewBook(author, title, pages, readStatus);
+  formData.reset();
 });
